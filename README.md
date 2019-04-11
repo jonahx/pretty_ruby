@@ -1,3 +1,5 @@
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
+
 # What does it do?
 
 Adds helpful methods and new syntax to existing methods to improve readability and expressiveness.
