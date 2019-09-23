@@ -176,6 +176,18 @@ module PrettyRuby
 
   end
 
+  refine Hash do
+    def unshift(key_val_pair)
+      key = key_val_pair[0]
+      val = key_val_pair[1]
+      old = self.dup
+      self.clear
+      self[key] = val
+      self.merge! old
+      return self
+    end
+  end
+
   #TODO: add separate tests for this
   refine ::Enumerable do
 
