@@ -225,6 +225,29 @@ describe 'Array' do
 
 end
 
+describe 'Hash' do
+  before do
+    @hash = {item: 'Hot Dog', price: 3.5, denomination: 'USD'}
+  end
+
+  describe "without refinement" do
+
+    describe "#unshift" do
+      it "raises" do
+        ->() { @hash.unshift [:condiment, 'mustard'] }.must_raise NoMethodError
+      end
+    end
+  end
+
+  using PrettyRuby
+
+  describe "#unshift" do
+    it 'adds a key-value pair to the "beginning" of a hash' do
+      @hash.unshift([:condiment, 'mustard']).must_equal({condiment: 'mustard', item: 'Hot Dog', price: 3.5, denomination: 'USD'})
+      # @hash.unshift([:condiment, 'mustard']).must_equal([:condiment, 'mustard'])
+    end
+  end
+end
 __END__
 
   refine Enumerable do
